@@ -1,0 +1,29 @@
+{
+  "name": "xpensify",
+  "version": "1.0.0",
+  "description": "xpenses tracking",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t [ babelify --presets [ es2015 react ] ] src/main.jsx -o app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sach2211/sach2211.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sach2211/sach2211.github.io/issues"
+  },
+  "homepage": "https://github.com/sach2211/sach2211.github.io#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}
