@@ -20,7 +20,7 @@ connection.connect(function(err) {
 
  
 
-function healthCheck() {
+function healthCheck(cb) {
 	console.log("Entering db healthCheck")
 	//connection.connect();
 	connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
@@ -30,6 +30,7 @@ function healthCheck() {
 	});
 	 
 	connection.end();
+	cb();
 }
 
 module.exports = {healthCheck}

@@ -18,9 +18,10 @@ app.get('/', function (req, res) {
  
 app.get('/db/healthcheck', function (req, res) {
   //res.header('Access-Control-Allow-Origin', "*")
-  
-  db.healthcheck();
-  res.send('Hello World')
+  db.healthCheck(function(){
+  	res.status(200).send("OK")
+  });
+
 })
   
 app.listen(3000, function() {
