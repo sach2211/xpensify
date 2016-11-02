@@ -6,8 +6,22 @@ var Header = React.createClass({
 
 addNewExpense: function() {
     console.log("User wants to add a new Expense")
+    // request
+    // .get('http://localhost:3000/db/healthcheck')
+    // .end(function(err, res){
+    //     if (err) {
+    //         console.log("Error is ", res)
+    //     } else {
+    //         console.log("Response is ", res)
+    //     }
+    // })
+    // 
+    
     request
-    .get('http://localhost:3000/db/healthcheck')
+    .post('http://localhost:3000/db/healthcheck/insert')
+    .send({name: 'sasaaaasss', age: 22})
+    .set('Accept', 'application/json')
+    .set('Content-Type', 'application/json')
     .end(function(err, res){
         if (err) {
             console.log("Error is ", res)
