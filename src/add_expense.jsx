@@ -23,8 +23,8 @@ addNewExpense: function() {
 render: function() {
   return (
     <div>
-    	<div className = "col-sm-4">
-    		<button onClick={this.addNewExpense}> 
+    	<div>
+    		<button onClick={this.addNewExpense} className = "btn btn-success"> 
                 Add Expense
             </button>
     	</div>

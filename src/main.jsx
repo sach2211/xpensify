@@ -15,12 +15,18 @@ var Greeting = React.createClass({
                 Xpensify ~
             </h3>
           </div>
-          <div>
-          	<ViewExpense />
-          </div>
-          <div>
-            <AddExpense />
-          </div>
+
+          <div className = 'row' >
+            
+            <div className = 'col-md-6  mainButtons'>
+            	<ViewExpense />
+            </div>
+            
+            <div className = 'col-md-6  mainButtons'>
+              <AddExpense />
+            </div>
+          
+          </div>          
         </div>
       )
     }

@@ -21,8 +21,8 @@ viewExpenseSummary: function() {
 render: function() {
   return (
     <div>
-    	<div className = "col-sm-4">
-    		<button onClick={this.viewExpenseSummary}> 
+    	<div>
+    		<button onClick={this.viewExpenseSummary} className = "btn btn-info"> 
                 View Summary
             </button>
     	</div>    	

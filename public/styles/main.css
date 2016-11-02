@@ -1,3 +1,7 @@
 .redHead {
 	color: red;
 }
+
+.mainButtons {
+	display: inline-block;
+}
