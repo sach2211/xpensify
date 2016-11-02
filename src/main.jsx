@@ -1,13 +1,26 @@
 var React = require('react')
 var ReactDOM = require('react-dom')
-var Header = require('./Header.jsx')
+
+var AddExpense = require('./add_expense.jsx')
+var ViewExpense = require('./view_expense.jsx')
+
 require('./fb_login')
 
 var Greeting = React.createClass({
     render: function() {
       return (
         <div>
-        	<Header />
+          <div className = "col-sm-4">
+            <h3 className="redHead">
+                Xpensify ~
+            </h3>
+          </div>
+          <div>
+          	<ViewExpense />
+          </div>
+          <div>
+            <AddExpense />
+          </div>
         </div>
       )
     }
