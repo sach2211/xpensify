@@ -8,7 +8,7 @@ addNewExpense: function() {
 
     request
     .post('http://localhost:3000/db/healthcheck/insert')
-    .send({name: 'sasaaaasss', age: 22})
+    .send({name: 'monko', age: 22})
     .set('Accept', 'application/json')
     .set('Content-Type', 'application/json')
     .end(function(err, res){

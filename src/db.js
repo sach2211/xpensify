@@ -1,50 +1,40 @@
-var MongoClient = require('mongodb').MongoClient
-  
-var DB_NAME = 'xpensify_sample'
-var URL = 'mongodb://localhost:27017/' + DB_NAME;
+const monk = require('monk')
 
-function connect() {
-	
-	return new Promise (function(resolve, reject) {
-		MongoClient.connect(URL, function(err, db) {		
-				if (err) {
-					reject(err)
-					console.error('Error fetching db object in connect method', err);
-				}
-				resolve(db)
-			})
-	});
-}
+// Connection URL
+const DB_NAME = 'xpensify_sample'
+const URL = 'localhost:27017/' + DB_NAME;
+const MDB = monk(URL);
+
+MDB.then(() => {
+  console.log('Connected correctly to server')
+})
+
+const userInfoCollection = MDB.get('userInfo')
 
 
 function healthcheck(callback) {
-	connect()
-	.then(function(db){
-		db.close(function(){
-			callback()
-		})
+	MDB
+	.then(() => {
+		console.log("DB Up and Running")
 	})
-	.catch(err => console.error("Database connection error ", err))
-	
+	.catch(err => {
+		console.error("Database connection error ", err)
+	})
 }
 
-function insertRecord(objectToInsert, callback) {
-	connect()
-	.then(function(db){
-		// data validation
-		let name  = objectToInsert.name || 'NA22'
-		let age  = objectToInsert.age || 'NA22'
-		console.log("Inserting into DB ", name, age)
-		// perform the db operation
 
-		let userInfoCollection = db.collection('userInfo')
-		userInfoCollection.insert({'name': name, 'age': age}, function(){
-			console.log("Record inserted in DB");
-			callback();
-			db.close();
-		})
+function insertRecord(objectToInsert, callback) {
+	let name  = objectToInsert.name || 'NA22'
+ 	let age  = objectToInsert.age || 'NA22'
+	
+	userInfoCollection.insert({'name' : name , 'age': age})
+	.then( () => {
+		console.log("Successfully Inserted values in DB")
+		MDB.close()
 	})
-	.catch(err => console.error("Database connection error ", err))
+	.catch(err => {
+		console.log("Error while inserting data in db ")
+	})
 }
 
 module.exports = {healthcheck, insertRecord}
