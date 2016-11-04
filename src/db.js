@@ -24,10 +24,10 @@ function healthcheck(callback) {
 
 
 function insertRecord(objectToInsert, callback) {
-	let name  = objectToInsert.name || 'NA22'
- 	let age  = objectToInsert.age || 'NA22'
-	
-	userInfoCollection.insert({'name' : name , 'age': age})
+	// let name  = objectToInsert.name || 'NA22'
+ // 	let age  = objectToInsert.age || 'NA22'
+	let {title, amount, description} = objectToInsert
+	userInfoCollection.insert({'title' : title, 'amount': amount, 'description': description})
 	.then( () => {
 		console.log("Successfully Inserted values in DB")
 		MDB.close()
