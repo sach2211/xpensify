@@ -1,12 +1,12 @@
 var React = require('react')
 var ReactDOM = require('react-dom')
 
-var AddExpense = require('./add_expense.jsx')
-var ViewExpense = require('./view_expense.jsx')
+var AddExpense = require('./add_expense_button.jsx')
+var ViewExpense = require('./view_expense_button.jsx')
 
-require('./fb_login')
+//require('./fb_login')
 
-var Greeting = React.createClass({
+var Home = React.createClass({
     render: function() {
       return (
         <div>
@@ -31,8 +31,20 @@ var Greeting = React.createClass({
       )
     }
   });
+ // var Home = React.createClass({
 
-  ReactDOM.render(
-    <Greeting/>,
-    document.getElementById('app-container')
-  );
+ //    componentWillMount: function() {
+ //        console.log("Component is mounting")
+ //    },
+ //    render: function() {
+ //        return (
+ //                <div> Hello World </div>
+ //            )
+ //    }
+ // })
+module.exports = Home
+
+  // ReactDOM.render(
+  //   <Greeting/>,
+  //   document.getElementById('app-container')
+  // );
